@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+  <widget version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <access origin="*" />
+  
+  <feature name="NativePageTransitions">
+    <param name="android-package" value="com.telerik.plugins.nativepagetransitions.NativePageTransitions"/>
+    <param name="onload" value="true"/>
+  </feature>
+
+
+  <feature name="AppMinimize">
+    <param name="android-package" value="tomloprod.AppMinimize"/>
+  </feature>
+
+
+  <feature name="BackgroundMode">
+    <param name="android-package" value="de.appplant.cordova.plugin.background.BackgroundMode"/>
+  </feature>
+
+
+  <feature/>
+
+
+  <feature name="Badge">
+    <param name="android-package" value="de.appplant.cordova.plugin.badge.Badge"/>
+  </feature>
+
+
+  <feature name="Device">
+    <param name="android-package" value="org.apache.cordova.device.Device"/>
+  </feature>
+
+
+  <feature name="Alipay">
+    <param name="android-package" value="org.apache.cordova.ali.Alipay"/>
+    <param name="onload" value="true"/>
+  </feature>
+
+
+  <feature name="LocalNotification">
+    <param name="android-package" value="de.appplant.cordova.plugin.localnotification.LocalNotification"/>
+  </feature>
+
+
+  <feature name="QRScanner">
+    <param name="android-package" value="com.bitpay.cordova.qrscanner.QRScanner"/>
+  </feature>
+
+
+  <feature name="Wechat">
+    <param name="android-package" value="xu.li.cordova.wechat.Wechat"/>
+  </feature>
+
+
+  <feature name="Whitelist">
+    <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin"/>
+    <param name="onload" value="true"/>
+  </feature>
+
+  </widget>
