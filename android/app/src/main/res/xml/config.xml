@@ -31,12 +31,6 @@
   </feature>
 
 
-  <feature name="Alipay">
-    <param name="android-package" value="org.apache.cordova.ali.Alipay"/>
-    <param name="onload" value="true"/>
-  </feature>
-
-
   <feature name="LocalNotification">
     <param name="android-package" value="de.appplant.cordova.plugin.localnotification.LocalNotification"/>
   </feature>
@@ -44,11 +38,6 @@
 
   <feature name="QRScanner">
     <param name="android-package" value="com.bitpay.cordova.qrscanner.QRScanner"/>
-  </feature>
-
-
-  <feature name="Wechat">
-    <param name="android-package" value="xu.li.cordova.wechat.Wechat"/>
   </feature>
 
 

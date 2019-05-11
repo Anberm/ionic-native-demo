@@ -15,7 +15,6 @@ dependencies {
 apply from: "../../node_modules/cordova-plugin-badge/src/android/badge.gradle"
 apply from: "../../node_modules/cordova-plugin-local-notification/src/android/build/localnotification.gradle"
 apply from: "../../node_modules/cordova-plugin-qrscanner/src/android/qrscanner.gradle"
-apply from: "../../node_modules/cordova-plugin-wechat/android-build.gradle"
 
 if (hasProperty('postBuildExtras')) {
   postBuildExtras()

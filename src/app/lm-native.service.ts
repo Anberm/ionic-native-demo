@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
-import { Alipay } from '@ionic-native/alipay/ngx';
+// import { Alipay } from '@ionic-native/alipay/ngx';
 import { HotCodePush, HotCodePushRequestOptions } from '@ionic-native/hot-code-push/ngx';
-import { Wechat } from '@ionic-native/wechat/ngx';
+// import { Wechat } from '@ionic-native/wechat/ngx';
 import { Platform } from '@ionic/angular';
 import { Device } from '@ionic-native/device/ngx';
 import { LocalNotifications, ILocalNotification } from '@ionic-native/local-notifications/ngx';
@@ -19,15 +19,18 @@ export class LmNativeService {
 
   msgWS: LmWebSocket;
   constructor(public _qrScanner: QRScanner,
-    public _alipay: Alipay,
+    // public _alipay: Alipay,
     public _hotCodePush: HotCodePush,
-    public _wechat: Wechat,
+    // public _wechat: Wechat,
     public _device: Device,
     public _localNotify: LocalNotifications,
     public _backgroundMode: BackgroundMode,
     public plt: Platform
   ) {
     this.msgWS = new LmWebSocket('ws://121.40.165.18:8800');
+    setInterval(() => {
+      this.msgWS.send(new Date());
+    }, 10000);
     this.msgWS.LmObservable().subscribe((x: string) => {
       const msg: ILocalNotification = {
         title: 'My first notification',
@@ -36,6 +39,15 @@ export class LmNativeService {
       };
       this.schedule(msg);
     });
+    document.addEventListener('deviceready', () => {
+      // cordova.plugins.backgroundMode is now available
+      // this._backgroundMode.excludeFromTaskList();
+      console.log('-----------------------------deviceready----------------------------');
+      this._backgroundMode.on('activate').subscribe(x => {
+        console.log('-----------------------------activate----------------------------');
+        console.log(x);
+      });
+    }, false);
   }
 
   isNative() {
@@ -89,24 +101,24 @@ export class LmNativeService {
     });
   }
   // 支付宝支付
-  aliPay(alipayOrder: string): Promise<NativeResult> {
-    return new Promise((resolve, reject) => {
-      // alipayOrder is a string that has been generated and signed by the server side.
-      this._alipay.pay(alipayOrder)
-        .then(result => {
-          resolve({
-            IsSuccess: true,
-            Result: result
-          });
-        })
-        .catch(error => {
-          resolve({
-            IsSuccess: false,
-            Result: error
-          });
-        });
-    });
-  }
+  // aliPay(alipayOrder: string): Promise<NativeResult> {
+  //   return new Promise((resolve, reject) => {
+  //     // alipayOrder is a string that has been generated and signed by the server side.
+  //     this._alipay.pay(alipayOrder)
+  //       .then(result => {
+  //         resolve({
+  //           IsSuccess: true,
+  //           Result: result
+  //         });
+  //       })
+  //       .catch(error => {
+  //         resolve({
+  //           IsSuccess: false,
+  //           Result: error
+  //         });
+  //       });
+  //   });
+  // }
 
   // 热更新
   hotCodePush(options: HotCodePushRequestOptions): Promise<NativeResult> {
@@ -126,21 +138,21 @@ export class LmNativeService {
     });
   }
   // 微信支付
-  wechatPay(params: any) {
-    return new Promise((resolve, reject) => {
-      this._wechat.sendPaymentRequest(params).then(result => {
-        resolve({
-          IsSuccess: true,
-          Result: result
-        });
-      }).catch(error => {
-        resolve({
-          IsSuccess: false,
-          Result: error
-        });
-      });
-    });
-  }
+  // wechatPay(params: any) {
+  //   return new Promise((resolve, reject) => {
+  //     this._wechat.sendPaymentRequest(params).then(result => {
+  //       resolve({
+  //         IsSuccess: true,
+  //         Result: result
+  //       });
+  //     }).catch(error => {
+  //       resolve({
+  //         IsSuccess: false,
+  //         Result: error
+  //       });
+  //     });
+  //   });
+  // }
 
   // 设备 uuid
 

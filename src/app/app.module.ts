@@ -12,12 +12,13 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { AppMinimize } from '@ionic-native/app-minimize/ngx';
 import { HotCodePush } from '@ionic-native/hot-code-push/ngx';
 import { NativePageTransitions } from '@ionic-native/native-page-transitions/ngx';
-import { Alipay } from '@ionic-native/alipay/ngx';
-import { Wechat } from '@ionic-native/wechat/ngx';
+// import { Alipay } from '@ionic-native/alipay/ngx';
+// import { Wechat } from '@ionic-native/wechat/ngx';
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 import { Device } from '@ionic-native/device/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { BackgroundMode } from '@ionic-native/background-mode/ngx';
+import { LmNativeService } from './lm-native.service';
 
 //#region providers
 
@@ -29,11 +30,14 @@ export const PROVIDERS = [
   AppMinimize,
   HotCodePush,
   QRScanner,
-  Alipay,
-  Wechat,
+  // Alipay,
+  // Wechat,
   Device,
   LocalNotifications,
   BackgroundMode,
+  //#endregion
+  //#region service
+  LmNativeService,
   //#endregion
 ];
 //#endregion
